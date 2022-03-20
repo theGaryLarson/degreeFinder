@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Pathways</h1>
+<table class='table'>
+    <tr>
+         <th>Pathway</th>
+         <th>Description</th>
+    </tr>
+    {% for path in pathways %}
+   <tr>
+       <td>{{ path.subject }}</td>
+       <td>{{ path.description }}</td>
+       {% endfor %}
+   </tr>
+</table>
+
+{% endblock %}

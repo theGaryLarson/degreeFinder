@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Areas Of Study</h1>
+<table class='table'>
+    <tr>
+         <th>Area</th>
+         <th>Description</th>
+    </tr>
+    {% for area in areas_of_study %}
+   <tr>
+       <td>{{ area.area_of_study }}</td>
+       <td>{{ area.description }}</td>
+       {% endfor %}
+   </tr>
+</table>
+
+{% endblock %}

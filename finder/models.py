@@ -38,6 +38,7 @@ class Degree(models.Model):
     guide = models.URLField(null=True, blank=True)
     # a list of grants stored as a json object
     grants = models.JSONField(null=True, blank=True)
+    revised_date = models.DateField(datetime.date.today())
 
     def __str__(self):
         return self.title

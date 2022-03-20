@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Pathways</h1>
+<table class='table'>
+    <tr>
+         <th>Degrees</th>
+         <th>Description</th>
+    </tr>
+    {% for degree in degrees %}
+   <tr>
+       <td>{{ degree.title }}</td>
+       <td>{{ degree.description }}</td>
+       {% endfor %}
+   </tr>
+</table>
+
+{% endblock %}
