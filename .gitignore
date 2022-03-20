@@ -1,0 +1,5 @@
+/manage.py
+/finder/__init__.py
+/core/settings.ini
+/core/asgi.py
+!/core/__init__.py
