@@ -8,7 +8,7 @@
     </tr>
     {% for degree in degrees %}
    <tr>
-       <td>{{ degree.title }}</td>
+       <td><a href="{% url 'degree_detail'  degree_id=degree.id %}">{{ degree.title }}</a></td>
        <td>{{ degree.description }}</td>
        {% endfor %}
    </tr>

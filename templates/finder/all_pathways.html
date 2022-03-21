@@ -8,7 +8,9 @@
     </tr>
     {% for path in pathways %}
    <tr>
-       <td>{{ path.subject }}</td>
+        {# here the path id is passed into our views.get_pathway_details method which renders its own page #}
+          <td><a href="{% url 'path_detail' path_id=path.id %}">{{ path.subject }}</a></td>
+{#        <td>{{ path.subject }}</td>#}
        <td>{{ path.description }}</td>
        {% endfor %}
    </tr>

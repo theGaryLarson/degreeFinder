@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ context.path.subject }}</h2>
+    <h6>Description</h6>
+<p>{{ context.path.description }} </p>
+<p>Revised Date: {{ context.path.revised_date }}</p>
+<h2>Degrees</h2>
+{#  todo: get this iterating through degrees  #}
+{#    {% for deg in path_details %}#}
+{# todo: example of using context dict from views to pass data #}
+{#<p>Entry Date: {{ prod.productentrydate }}</p>#}
+{#<p>URL: {{ prod.producturl }}</p>#}
+{#<p>Description: {{ prod.productdescription }}</p>#}
+{#<p>Price: {{ prod.productprice }}</p>#}
+{#<p>Member discount: {{ discount }}</p>#}
+{#<p>No. Of Reviews: {{ reviews }}</p>#}
+
+{% endblock %}

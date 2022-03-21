@@ -8,7 +8,7 @@
     </tr>
     {% for area in areas_of_study %}
    <tr>
-       <td>{{ area.area_of_study }}</td>
+       <td><a href="{% url 'area_detail' area_id=area.id %}">{{ area.area_of_study }}</a></td>
        <td>{{ area.description }}</td>
        {% endfor %}
    </tr>
