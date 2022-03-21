@@ -30,7 +30,7 @@ def get_pathways(request, area_id):
     :param area_id: id of area-of-study
     :return: list of Pathways under that area of study
     """
-    filtered_paths = Pathway.objects.filter(area=area_id)
+    filtered_paths = Pathway.objects.filter(area_id=area_id)
     # todo: play with this 'filterPaths' string to see if it is the key to ref context
     return render(request, 'finder/all_pathways.html', {'filteredPaths': filtered_paths})
 
@@ -38,7 +38,7 @@ def get_pathways(request, area_id):
 # detail views
 def get_pathway_detail(request, path_id):
     path = get_object_or_404(Pathway, pk=path_id)
-    degrees = Degree.objects.filter(pathway_id=path.pk)
+    degrees = Degree.objects.filter(pathway_id=path_id)
     context = {
         'path': path,
         'degrees': degrees

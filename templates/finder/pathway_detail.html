@@ -6,7 +6,9 @@
 <p>Revised Date: {{ context.path.revised_date }}</p>
 <h2>Degrees</h2>
 {#  todo: get this iterating through degrees  #}
-{#    {% for deg in path_details %}#}
+    {% for deg in context.degrees %}
+        <p>{{ deg.title }}</p>
+    {% endfor %}
 {# todo: example of using context dict from views to pass data #}
 {#<p>Entry Date: {{ prod.productentrydate }}</p>#}
 {#<p>URL: {{ prod.producturl }}</p>#}
