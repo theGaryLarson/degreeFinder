@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import AreaOfStudy, Pathway, Degree
 from .forms import AreaOfStudyForm, PathwayForm, DegreeForm, ClassForm, StudentForm
+from django.contrib.auth.decorators import  login_required
 
 
 # Create your views here.
@@ -62,8 +63,8 @@ def get_degree_detail(request, degree_id):
 
 
 # form views
+@login_required
 def new_area(request):
-    form = AreaOfStudyForm
     if request.method == 'POST':
         form = AreaOfStudyForm(request.POST)
         if form.is_valid():
@@ -75,6 +76,7 @@ def new_area(request):
     return render(request, 'finder/new_area_of_study.html', {'form': form})
 
 
+@login_required
 def new_pathway(request):
     form = PathwayForm
     if request.method == 'POST':
@@ -88,6 +90,7 @@ def new_pathway(request):
     return render(request, 'finder/new_pathway.html', {'form': form})
 
 
+@login_required
 def new_degree(request):
     form = DegreeForm
     if request.method == 'POST':
@@ -101,6 +104,7 @@ def new_degree(request):
     return render(request, 'finder/new_degree.html', {'form': form})
 
 
+@login_required
 def new_class(request):
     form = ClassForm
     if request.method == 'POST':
@@ -114,6 +118,7 @@ def new_class(request):
     return render(request, 'finder/new_class.html', {'form': form})
 
 
+# no login required for a student to create a profile
 def new_student(request):
     form = StudentForm
     if request.method == 'POST':
@@ -125,3 +130,12 @@ def new_student(request):
     else:
         form = StudentForm()
     return render(request, 'finder/new_student.html', {'form': form})
+
+
+# authorization views
+def login_message(request):
+    return render(request, 'finder/login_message.html')
+
+
+def logout_message(request):
+    return render(request, 'finder/logout_message.html')

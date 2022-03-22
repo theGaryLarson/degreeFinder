@@ -21,10 +21,15 @@ urlpatterns = [
 
     # form paths
     path('new_student/', views.new_student, name='new_student'),
-    path('new_area', views.new_area, name='new_area'),
+    path('new_area/', views.new_area, name='new_area'),
     path('new_pathway/', views.new_pathway, name='new_pathway'),
     path('new_degree/', views.new_degree, name='new_degree'),
     path('new_class/', views.new_class, name='new_class'),
+
+
+    # authorization paths
+    path('login_message/', views.login_message, name='login_message'),
+    path('logout_message/', views.logout_message, name='logout_message'),
 
 
 ]
