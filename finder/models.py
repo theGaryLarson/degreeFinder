@@ -48,3 +48,21 @@ class Degree(models.Model):
         verbose_name_plural = 'Degrees'
 
 
+# todo: migrate & implement these classes in the project
+class Class(models.Model):
+    degree = models.ManyToManyField(Degree)
+    instructor = models.CharField(max_length=100, null=True, blank=True)
+    isOnline = models.BooleanField(null=True)
+    # Json field will contain quarter, year, daysOfWeek, time
+    schedule = models.JSONField(null=True, blank=True)
+
+
+class Student(models.Model):
+    f_name = models.CharField(max_length=50)
+    l_name = models.CharField(max_length=75)
+    img = models.ImageField(null=True)
+    ctc_link_id = models.IntegerField(null=True)
+    is_enrolled = models.BooleanField(null=True)
+    degree = models.ForeignKey(Degree, on_delete=models.DO_NOTHING)
+    # will contain a list of pathways of interest
+    path_interests = models.JSONField(null=True)

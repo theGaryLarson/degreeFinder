@@ -1,10 +1,15 @@
 from django.shortcuts import render, get_object_or_404
 from .models import AreaOfStudy, Pathway, Degree
+from .forms import AreaOfStudyForm, PathwayForm, DegreeForm, ClassForm, StudentForm
 
 
 # Create your views here.
 def index(request):
     return render(request, 'finder/index.html')
+
+
+def get_data_entry_page(request):
+    return render(request, 'finder/data_entry.html')
 
 
 def get_areas(request):
@@ -54,3 +59,69 @@ def get_area_detail(request, area_id):
 def get_degree_detail(request, degree_id):
     degree = get_object_or_404(Degree, pk=degree_id)
     return render(request, 'finder/degree_detail.html', {'degree': degree})
+
+
+# form views
+def new_area(request):
+    form = AreaOfStudyForm
+    if request.method == 'POST':
+        form = AreaOfStudyForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=True)
+            post.save()
+            form = AreaOfStudyForm()
+    else:
+        form = AreaOfStudyForm()
+    return render(request, 'finder/new_area_of_study.html', {'form': form})
+
+
+def new_pathway(request):
+    form = PathwayForm
+    if request.method == 'POST':
+        form = PathwayForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=True)
+            post.save()
+            form = PathwayForm()
+    else:
+        form = PathwayForm()
+    return render(request, 'finder/new_pathway.html', {'form': form})
+
+
+def new_degree(request):
+    form = DegreeForm
+    if request.method == 'POST':
+        form = DegreeForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=True)
+            post.save()
+            form = DegreeForm()
+    else:
+        form = DegreeForm()
+    return render(request, 'finder/new_degree.html', {'form': form})
+
+
+def new_class(request):
+    form = ClassForm
+    if request.method == 'POST':
+        form = ClassForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=True)
+            post.save()
+            form = ClassForm()
+    else:
+        form = ClassForm()
+    return render(request, 'finder/new_class.html', {'form': form})
+
+
+def new_student(request):
+    form = StudentForm
+    if request.method == 'POST':
+        form = StudentForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=True)
+            post.save()
+            form = StudentForm()
+    else:
+        form = StudentForm()
+    return render(request, 'finder/new_student.html', {'form': form})

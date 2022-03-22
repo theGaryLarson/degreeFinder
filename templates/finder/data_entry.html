@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Data Entry</h2>
+    <ul>
+        <li><a href="{%  url 'new_area'  %}">Add Area of Study</a></li>
+        <li><a href="{%  url 'new_pathway'  %}">Add Guided Pathway</a></li>
+        <li><a href="{%  url 'new_degree'  %}">Add Degree or Certificate</a></li>
+        <li><a href="{%  url 'new_class'  %}">Add Class & Schedule</a></li>
+    </ul>
+{% endblock %}
